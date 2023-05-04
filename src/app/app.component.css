@@ -1,0 +1,395 @@
+
+.scOrder {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    background: #1c212e;
+    position: relative;
+    height: 63px;
+    width: 240px;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: 32px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.scOrder span {
+    --o: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 19px;
+    line-height: 24px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: var(--o);
+    transition: opacity 0.3s ease;
+}
+.scOrder span.scDefault {
+    transition-delay: 0.3s;
+}
+.scOrder span.scSuccess {
+    --offset: 16px;
+    --o: 0;
+}
+.scOrder span.scSuccess svg {
+    width: 12px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: top;
+    fill: none;
+    margin: 7px 0 0 4px;
+    stroke: #16bf78;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: var(--offset);
+    transition: stroke-dashoffset 0.3s ease;
+}
+.scOrder:active {
+    transform: scale(0.96);
+}
+.scOrder .scLines {
+    opacity: 0;
+    position: absolute;
+    height: 3px;
+    background: #FFF;
+    border-radius: 2px;
+    width: 6px;
+    top: 30px;
+    left: 100%;
+    box-shadow: 15px 0 0 #FFF, 30px 0 0 #FFF, 45px 0 0 #FFF, 60px 0 0 #FFF, 75px 0 0 #FFF, 90px 0 0 #FFF, 105px 0 0 #FFF, 120px 0 0 #FFF, 135px 0 0 #FFF, 150px 0 0 #FFF, 165px 0 0 #FFF, 180px 0 0 #FFF, 195px 0 0 #FFF, 210px 0 0 #FFF, 225px 0 0 #FFF, 240px 0 0 #FFF, 255px 0 0 #FFF, 270px 0 0 #FFF, 285px 0 0 #FFF, 300px 0 0 #FFF, 315px 0 0 #FFF, 330px 0 0 #FFF;
+}
+.scOrder .scBack, .scOrder .scBox {
+    --start: #FFF;
+    --stop: #cdd9ed;
+    border-radius: 2px;
+    background: linear-gradient(var(--start), var(--stop));
+    position: absolute;
+}
+.scOrder .scTruck {
+    width: 60px;
+    height: 41px;
+    left: 100%;
+    z-index: 1;
+    top: 11px;
+    position: absolute;
+    transform: translateX(24px);
+}
+.scOrder .scTruck:before, .scOrder .scTruck:after {
+    --r: -90deg;
+    content: "";
+    height: 2px;
+    width: 20px;
+    right: 58px;
+    position: absolute;
+    display: block;
+    background: #FFF;
+    border-radius: 1px;
+    transform-origin: 100% 50%;
+    transform: rotate(var(--r));
+}
+.scOrder .scTruck:before {
+    top: 4px;
+}
+.scOrder .scTruck:after {
+    --r: 90deg;
+    bottom: 4px;
+}
+.scOrder .scTruck .scBack {
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 41px;
+    z-index: 1;
+}
+.scOrder .scTruck .scFront {
+    overflow: hidden;
+    position: absolute;
+    border-radius: 2px 9px 9px 2px;
+    width: 26px;
+    height: 41px;
+    left: 60px;
+}
+.scOrder .scTruck .scFront:before, .scOrder .scTruck .scFront:after {
+    content: "";
+    position: absolute;
+    display: block;
+}
+.scOrder .scTruck .scFront:before {
+    height: 13px;
+    width: 2px;
+    left: 0;
+    top: 14px;
+    background: linear-gradient(#6c7486, #3f4656);
+}
+.scOrder .scTruck .scFront:after {
+    border-radius: 2px 9px 9px 2px;
+    background: #275efe;
+    width: 24px;
+    height: 41px;
+    right: 0;
+}
+.scOrder .scTruck .scFront .scWindow {
+    overflow: hidden;
+    border-radius: 2px 8px 8px 2px;
+    background: #7699ff;
+    transform: perspective(4px) rotateY(3deg);
+    width: 22px;
+    height: 41px;
+    position: absolute;
+    left: 2px;
+    top: 0;
+    z-index: 1;
+    transform-origin: 0 50%;
+}
+.scOrder .scTruck .scFront .scWindow:before, .scOrder .scTruck .scFront .scWindow:after {
+    content: "";
+    position: absolute;
+    right: 0;
+}
+.scOrder .scTruck .scFront .scWindow:before {
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    background: #1C212E;
+}
+.scOrder .scTruck .scFront .scWindow:after {
+    width: 14px;
+    top: 7px;
+    height: 4px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.14);
+    transform: skewY(14deg);
+    box-shadow: 0 7px 0 rgba(255, 255, 255, 0.14);
+}
+.scOrder .scTruck .scLight {
+    width: 3px;
+    height: 8px;
+    left: 83px;
+    transform-origin: 100% 50%;
+    position: absolute;
+    border-radius: 2px;
+    transform: scaleX(0.8);
+    background: #f0dc5f;
+}
+.scOrder .scTruck .scLight:before {
+    content: "";
+    height: 4px;
+    width: 7px;
+    opacity: 0;
+    transform: perspective(2px) rotateY(-15deg) scaleX(0.94);
+    position: absolute;
+    transform-origin: 0 50%;
+    left: 3px;
+    top: 50%;
+    margin-top: -2px;
+    background: linear-gradient(90deg, #f0dc5f, rgba(240, 220, 95, 0.7), rgba(240, 220, 95, 0));
+}
+.scOrder .scTruck .scLight.scTop {
+    top: 4px;
+}
+.scOrder .scTruck .scLight.scBottom {
+    bottom: 4px;
+}
+.scOrder .scBox {
+    --start: #edd9a9;
+    --stop: #dcb773;
+    width: 21px;
+    height: 21px;
+    right: 100%;
+    top: 21px;
+}
+.scOrder .scBox:before, .scOrder .scBox:after {
+    content: "";
+    top: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.scOrder .scBox:before {
+    height: 3px;
+    margin-top: -1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+.scOrder .scBox:after {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.15);
+}
+.scOrder.animate .scDefault {
+    --o: 0;
+    transition-delay: 0s;
+}
+.scOrder.animate .scSuccess {
+    --offset: 0;
+    --o: 1;
+    transition-delay: 7s;
+}
+.scOrder.animate .scSuccess svg {
+    transition-delay: 7.3s;
+}
+.scOrder.animate .scTruck {
+    -webkit-animation: scTruck 10s ease forwards;
+    animation: scTruck 10s ease forwards;
+}
+.scOrder.animate .scTruck:before {
+    -webkit-animation: door1 2.4s ease forwards 0.3s;
+    animation: door1 2.4s ease forwards 0.3s;
+}
+.scOrder.animate .scTruck:after {
+    -webkit-animation: door2 2.4s ease forwards 0.6s;
+    animation: door2 2.4s ease forwards 0.6s;
+}
+.scOrder.animate .scTruck .scLight:before, .scOrder.animate .scTruck .scLight:after {
+    -webkit-animation: scLight 10s ease forwards;
+    animation: scLight 10s ease forwards;
+}
+.scOrder.animate .scBox {
+    -webkit-animation: scBox 10s ease forwards;
+    animation: scBox 10s ease forwards;
+}
+.scOrder.animate .scLines {
+    -webkit-animation: scLines 10s ease forwards;
+    animation: scLines 10s ease forwards;
+}
+@-webkit-keyframes sctruck {
+    10%, 30% {
+        transform: translateX(-164px);
+   }
+    40% {
+        transform: translateX(-104px);
+   }
+    60% {
+        transform: translateX(-224px);
+   }
+    75%, 100% {
+        transform: translateX(24px);
+   }
+}
+@keyframes scTruck {
+    10%, 30% {
+        transform: translateX(-164px);
+   }
+    40% {
+        transform: translateX(-104px);
+   }
+    60% {
+        transform: translateX(-224px);
+   }
+    75%, 100% {
+        transform: translateX(24px);
+   }
+}
+@-webkit-keyframes scLines {
+    0%, 30% {
+        opacity: 0;
+        transform: scaleY(0.7) translateX(0);
+   }
+    35%, 65% {
+        opacity: 1;
+   }
+    70% {
+        opacity: 0;
+   }
+    100% {
+        transform: scaleY(0.7) translateX(-400px);
+   }
+}
+@keyframes scLines {
+    0%, 30% {
+        opacity: 0;
+        transform: scaleY(0.7) translateX(0);
+   }
+    35%, 65% {
+        opacity: 1;
+   }
+    70% {
+        opacity: 0;
+   }
+    100% {
+        transform: scaleY(0.7) translateX(-400px);
+   }
+}
+@-webkit-keyframes scLight {
+    0%, 30% {
+        opacity: 0;
+        transform: perspective(2px) rotateY(-15deg) scaleX(0.88);
+   }
+    40%, 100% {
+        opacity: 1;
+        transform: perspective(2px) rotateY(-15deg) scaleX(0.94);
+   }
+}
+@keyframes scLight {
+    0%, 30% {
+        opacity: 0;
+        transform: perspective(2px) rotateY(-15deg) scaleX(0.88);
+   }
+    40%, 100% {
+        opacity: 1;
+        transform: perspective(2px) rotateY(-15deg) scaleX(0.94);
+   }
+}
+@-webkit-keyframes door1 {
+    30%, 50% {
+        transform: rotate(32deg);
+   }
+}
+@keyframes door1 {
+    30%, 50% {
+        transform: rotate(32deg);
+   }
+}
+@-webkit-keyframes door2 {
+    30%, 50% {
+        transform: rotate(-32deg);
+   }
+}
+@keyframes door2 {
+    30%, 50% {
+        transform: rotate(-32deg);
+   }
+}
+@-webkit-keyframes scBox {
+    8%, 10% {
+        transform: translateX(40px);
+        opacity: 1;
+   }
+    25% {
+        transform: translateX(112px);
+        opacity: 1;
+   }
+    26% {
+        transform: translateX(112px);
+        opacity: 0;
+   }
+    27%, 100% {
+        transform: translateX(0px);
+        opacity: 0;
+   }
+}
+@keyframes scBox {
+    8%, 10% {
+        transform: translateX(40px);
+        opacity: 1;
+   }
+    25% {
+        transform: translateX(112px);
+        opacity: 1;
+   }
+    26% {
+        transform: translateX(112px);
+        opacity: 0;
+   }
+    27%, 100% {
+        transform: translateX(0px);
+        opacity: 0;
+   }
+}
